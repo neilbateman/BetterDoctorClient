@@ -2,9 +2,10 @@ import { DoctorClient } from './client.js';
 import $ from 'jquery';
 
 $(document).ready(function(){
-  $('#search').on('submit', function(event) {
+  $('#search').submit(function(event) {
+    let issue;
     let doctor = new DoctorClient();
-    let promise = doctor.getDrByIssue($("."+$(this).attr(`id`)+".search").val());
+    let promise = doctor.getDrByIssue(issue);
     promise.then(function(response) {
       let body = JSON.parse(response);
       if(body.data.length === 0) {
@@ -14,5 +15,4 @@ $(document).ready(function(){
         $("#result").text(`<li>${dr.profile.first_name} ${dr.profile.last_name}</li>`)
       })
     })
-     event.preventDefault();
 });
