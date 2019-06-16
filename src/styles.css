@@ -1,0 +1,13 @@
+body {
+  background-color: lightgreen;
+}
+
+.container {
+  background-color: teal;
+}
+
+#search {
+  padding: 15px;
+  margin: 15px;
+  border: gray;
+}
