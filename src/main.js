@@ -28,7 +28,7 @@ import 'bootstrap';
               if(patient.accepts_new_patients === true) {
                 acceptPatient = "Yes";
               }
-              $(`.${dr.uid}`).text(` Phone: ${dr.practices[0].phones[0].number} | Accepting Patients: ${acceptPatient}`)
+              $(`.${dr.uid}`).text(`Specialty: ${dr.specialties[0].name} | Phone: ${dr.practices[0].phones[0].number} | Accepting Patients: ${acceptPatient}`)
             })
       }), function (error) {
         $("#result").text(`Error processing your request: ${error.message}`);
