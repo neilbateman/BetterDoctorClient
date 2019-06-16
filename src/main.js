@@ -3,21 +3,23 @@ import $ from 'jquery';
 import './styles.css';
 import 'bootstrap';
 
- $(document).ready(function(){
+  $(document).ready(function(){
   $("#search").submit(function(event) {
-    event.preventDefault();
+   event.preventDefault();
     let name;
     let issue;
-    let doctor = new DoctorClient();
+   let doctor = new DoctorClient();
 
 
 
     let promise = doctor.getDrByIssue(name, issue);
+
+
     promise.then(function(response) {
       let body = JSON.parse(response);
-    //  $("#result").empty();
+     $("#result").empty();
       if(body.data.length === 0) {
-        $("#result").append(`No results for the given issue`);
+        $("#noresult").append(`No results for the given search`);
       } else {
           body.data.forEach(function(dr) {
             $("#result").append(`${dr.profile.first_name} ${dr.profile.last_name}  <ul class = ${dr.uid}>`)
@@ -26,7 +28,7 @@ import 'bootstrap';
               if(patient.accepts_new_patients === true) {
                 acceptPatient = "Yes";
               }
-              $(`.${dr.uid}`).text(`| Phone: ${dr.practices[0].phones[0].number} | Accepting Patients: ${acceptPatient}`)
+              $(`.${dr.uid}`).text(` Phone: ${dr.practices[0].phones[0].number} | Accepting Patients: ${acceptPatient}`)
             })
       }), function (error) {
         $("#result").text(`Error processing your request: ${error.message}`);
@@ -34,6 +36,6 @@ import 'bootstrap';
     }
   });
   });
-});
+ });
 //| Website: ${dr.profile.website}
 //| Phone: ${dr.practices[0].phones[0].number} | Accepting Patients: ${acceptPatient}

@@ -3,12 +3,15 @@
   <title>Home</title>
   <body>
     <div class="container">
-      <form id="search" method="post" class="search"> <h1>Search for doctor by name and issue:</h1>
-        <label for="name">Dr. name:</label><br><input id ="name" type ="text" name="name" required><br>
-        <label for="issue">Medical issue:</label><br><input id="issue" type="text" name="issue"><br>
-        <input type="submit" name="button" value="submit" class="search">
+     <h1>Search for doctor by name and issue:</h1>
+       <form id="search">
+        <label for="name">Dr. name:</label><br><input type ="text" name="name" required><br>
+
+        <label for="issue">Medical issue:</label><br><input type="text" name="issue"><br>
+      <input type="submit" value="Submit">
       </form>
       <div id="result"></div>
+      <div id="noresult"></div>
     </div>
   </body>
 </head>

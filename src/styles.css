@@ -6,7 +6,7 @@ body {
   background-color: teal;
 }
 
-#search {
+#search, #issue {
   padding: 15px;
   margin: 15px;
   border: gray;
