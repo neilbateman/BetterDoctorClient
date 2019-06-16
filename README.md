@@ -26,7 +26,7 @@ _To run the application:_
 
 | Behavior | Input | Output |
 | ------------- |:-------------:| -----:|
-|Program returns a list of doctors of a given condition in the Portland area. | Kevin Bacon | pain | John Butler
+|Program returns a list of doctors of a given condition in the Portland area. | Kevin Bacon pain | John Butler
 
     Specialty: Pulmonary Disease | Phone: 5032161234 | Accepting Patients: Yes |
 | Program returns error message if API request failed | failed call | "Error: your api call failed: Bad Request." |
