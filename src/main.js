@@ -9,19 +9,31 @@ import 'bootstrap';
     let name;
     let issue;
     let doctor = new DoctorClient();
+
+
+
     let promise = doctor.getDrByIssue(name, issue);
     promise.then(function(response) {
       let body = JSON.parse(response);
-      $("#result").empty();
+    //  $("#result").empty();
       if(body.data.length === 0) {
-        $("#result").append(`<p>No results for the given issue</p>`);
+        $("#result").append(`No results for the given issue`);
       } else {
           body.data.forEach(function(dr) {
-            $("#result").append(`<p>${dr.profile.first_name} ${dr.profile.last_name} | Phone: ${dr.practices[0].phones[0].number} | Website: ${dr.profile.website}</p>`);
+            $("#result").append(`${dr.profile.first_name} ${dr.profile.last_name}  <ul class = ${dr.uid}>`)
+            dr.practices.forEach(function(patient){
+              let acceptPatient = "No";
+              if(patient.accepts_new_patients === true) {
+                acceptPatient = "Yes";
+              }
+              $(`.${dr.uid}`).text(`| Phone: ${dr.practices[0].phones[0].number} | Accepting Patients: ${acceptPatient}`)
+            })
       }), function (error) {
-        $("#result").text(`<p>Error processing your request: ${error.message}`);
+        $("#result").text(`Error processing your request: ${error.message}`);
       }
     }
   });
   });
 });
+//| Website: ${dr.profile.website}
+//| Phone: ${dr.practices[0].phones[0].number} | Accepting Patients: ${acceptPatient}
