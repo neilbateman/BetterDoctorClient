@@ -1,13 +1,17 @@
 body {
-  background-color: lightgreen;
-}
-
-.container {
   background-color: teal;
 }
 
-#search, #issue {
+.container {
+  background-color: lightgreen;
+  padding: 15px;
+}
+/*
+#search, #issue, #name {
   padding: 15px;
   margin: 15px;
   border: gray;
+} */
+.submit {
+  padding: 15px;
 }

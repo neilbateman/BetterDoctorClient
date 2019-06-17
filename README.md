@@ -26,9 +26,9 @@ _To run the application:_
 
 | Behavior | Input | Output |
 | ------------- |:-------------:| -----:|
-|Program returns a list of doctors of a given condition in the Portland area. | Kevin Bacon pain | John Butler
+|Program returns a list of doctors of a given condition in the Portland area. | Kevin Bacon pain | Stuart Rosenblum
 
-    Specialty: Pulmonary Disease | Phone: 5032161234 | Accepting Patients: Yes |
+    Specialty: Pain Medicine / Phone: 5032999906 / Accepting Patients: Yes / Address: 2801 N Gantenbein Ave, Portland, OR, 97227 / Website: undefined
 | Program returns error message if API request failed | failed call | "Error: your api call failed: Bad Request." |
 | Program returns error message if search returns no result | "No results for the given search." |
 
