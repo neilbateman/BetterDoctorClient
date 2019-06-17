@@ -17,9 +17,6 @@ $(document).ready(function(){
         $('#result').text(`Please enter a doctor name or health issue`);
       } else if (body.data.length === 0) {
         $('#result').text(`No results for the given search`);
-
-
-
       } else {
         body.data.forEach(function(dr) {
           let acceptsPatients = "";
@@ -28,8 +25,12 @@ $(document).ready(function(){
           } else {
             acceptsPatients = "No";
           }
+          let website = [];
+          if (dr.practices[0].website === undefined) {
+            website = "none";
+          } else website = dr.practices[0].website;
           $("#result").append(`${dr.profile.first_name} ${dr.profile.last_name}  <ul class = ${dr.uid}>`)
-          $(`.${dr.uid}`).text(`Specialty: ${dr.specialties[0].name} | Phone: ${dr.practices[0].phones[0].number} | Accepting Patients: ${acceptsPatients} | Address: ${dr.practices[0].visit_address.street}, ${dr.practices[0].visit_address.city}, ${dr.practices[0].visit_address.state}, ${dr.practices[0].visit_address.zip} | Website: ${dr.practices[0].website}` );
+          $(`.${dr.uid}`).text(`Specialty: ${dr.specialties[0].name} | Phone: ${dr.practices[0].phones[0].number} | Accepting Patients: ${acceptsPatients} | Address: ${dr.practices[0].visit_address.street}, ${dr.practices[0].visit_address.city}, ${dr.practices[0].visit_address.state}, ${dr.practices[0].visit_address.zip} | Website: ${website}` );
 
         }, function(error) {
           $('#noresult').text(`Error processing your request: ${error.message}`);
